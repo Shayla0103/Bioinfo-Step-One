@@ -1,0 +1,60 @@
+# Q1
+import this
+
+# Q2
+a, b = 906, 953 
+c = a**2 + b**2
+print(c)
+
+# Q3
+s = 'a7hkGtZqBr9qQ3yXE6mztLRM8gbzL22XOfVm9TurdusV62SCPS8iMwd7cXiOWK3sMtCWZvSb4mQfMasa6HG7zrRom2vNqF7onFMOMQCvADZYoguCD7wtOeHtGupQUOUmXu7AYODglareolaflDgcAGu0V2U1Awi.'
+a, b, c, d = 37, 42, 135, 142
+print (s[a: b+1], s [c: d+1])
+
+# Q4
+a, b = int(4901), int(9129)
+if a % 2 == 1:
+    n = a
+else:
+    n = a + 1
+s = 0
+while n <= b:
+    s = s + n
+    n = n + 2
+print(s)
+
+# Q5
+file_path = r'C:\Users\xg856\Downloads\\'
+with open(file_path + 'rosalind_ini5.txt', 'r') as f:
+    # 使用 enumerate 获取行号（从1开始）
+    for i, line in enumerate(f, 1):
+        if i % 2 == 0:
+            print(line.strip()) # strip() 用于去除末尾换行符
+
+# Q6 Correct:
+file_path = r'C:\Users\xg856\Downloads\rosalind_ini6.txt'
+with open(file_path, 'r') as f:
+    s = f.read()
+    word_count = {}
+    for word in s.split():
+        # 如果单词不在字典里，设为 0 并加 1
+        word_count[word] = word_count.get(word, 0) + 1
+
+    for word, count in word_count.items():
+        print(word, count)
+
+# Q6 Wrong:
+r'C:\Users\xg856\Downloads\rosalind_ini6 (1).txt'
+with open(file_path, 'r') as f:
+    s = f.read()
+    a = s.split(' ')
+    b = set(a)
+    for x in b:
+        n = a.count(x)
+        print(x, n)
+"""为什么你的代码会失败？
+1. 读入了不可见的换行符：当你使用 f.read() 读取整个文件时，文件末尾通常会带有一个不可见的换行符 \n 。   
+
+2. split(' ') 的局限性：你使用了 s.split(' ')，这只会根据空格拆分 。如果字符串末尾有换行符，最后一个单词会和换行符连在一起（例如 "Zen\n"），导致统计结果出现偏差（比如 Zen 变成了 Zen\n） 。   
+
+3. Rosalind 的判题机制：Rosalind 提示过，单词之间是由空格分隔的 。如果你的输出中包含了多余的空行或带换行符的单词，校验就会失败。"""
