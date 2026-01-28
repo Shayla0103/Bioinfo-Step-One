@@ -1,5 +1,8 @@
-# 读取输入（通常从 Rosalind 下载的 .txt 文件内容复制进来）
-s = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+
+with open('rosalind_dna.txt', 'r') as f:
+    # .read() 读取全文
+    # .strip() 去掉首尾的所有空白字符（包括换行符 \n、回车符 \r 和空格）
+    s = f.read().strip()
 
 # 统计四种碱基的出现次数
 a_count = s.count('A')
