@@ -23,7 +23,7 @@ id, gc = get_max_gc('rosalind_gc.txt')
 print(f"{id}\n{gc:.6f}")
 
 
-# Soution 2:
+# Solution 2:
 from Bio import SeqIO
 from Bio.SeqUtils import gc_fraction
 
